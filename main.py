@@ -1,5 +1,5 @@
 import os,sys
-os.environ['DJANGO_SETTINGS_MODULE'] = 'untitled.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'wifi_course_manager.settings'
 
 # Google App Engine imports.
 from google.appengine.ext.webapp import util
