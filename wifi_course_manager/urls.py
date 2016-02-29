@@ -5,16 +5,15 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'wifi_course_manager.views.home', name='home'),
-    # url(r'^wifi_course_manager/', include('wifi_course_manager.foo.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
+    # auth
+    url('^', include('django.contrib.auth.urls')),
+
+    # admin
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
-    # fetch new data
-    url(r'^fetch/', include('fetch.urls'))
+    # apps
+    url(r'^fetch/', include('fetch.urls')),
+    url(r'^', include('display.urls')),
 )

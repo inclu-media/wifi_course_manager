@@ -1,0 +1,25 @@
+{% extends "display/base.html" %}
+
+{% block content %}
+
+    <div class="container">
+
+        <form method="post" class="form-signin" action="{% url 'django.contrib.auth.views.login' %}">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">Bitte logge Dich ein</h2>
+            <label for="username" class="sr-only">Email Adresse</label>
+            <input type="email" id="id_username" name="username" class="form-control" placeholder="Email Adresses" required autofocus>
+            <label for="password" class="sr-only">Passwort</label>
+            <input type="password" id="id_password" name="password" class="form-control" placeholder="Password" required>
+
+            {% if form.errors %}
+                <div class="text-danger login-failure">Ungültige Email Adresse oder Passwort. Versuch's noch einmal! </div>
+            {% endif %}
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Login</button>
+              <input type="hidden" name="next" value="{{ next }}" />
+            <div><a href="{% url 'password_reset' %}">Password vergessen?</a></div>
+        </form>
+
+    </div>
+{% endblock %}
